@@ -24,7 +24,7 @@
 
 
 #include <QList>
-#include <QWidget>
+#include <QString>
 
 
 #define ENOTATION "1 2 3 4 5 6 7 8 9 1011121314151617181920212223242526272829303132"
@@ -51,9 +51,9 @@ public:
 	PdnGame* newGame();
 
 	void clear() { m_database.clear(); }
-	// parent is needed to display a progress dialog.
-	bool open(const QString& filename, QWidget* parent,
-			const QString& label, QString& text_to_log);
+	// reads the file, fills the database.
+	// text_to_log receives a log of all occurred problems.
+	bool open(const QString& filename, QString& text_to_log);
 	bool save(const QString& filename);
 
 private:

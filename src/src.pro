@@ -10,24 +10,23 @@ isEmpty(PREFIX) {
 message(PREFIX: $$PREFIX)
 DEFINES += PREFIX=\\\"$$PREFIX\\\"
 
-QT += widgets svg
+QT += quick qml svg widgets
 
 HEADERS	= pdn.h \
 	    checkers.h echeckers.h rcheckers.h \
-	    capture.h theme.h field.h toplevel.h view.h history.h board.h \
-	    newgamedlg.h \
+	    capture.h \
 	    common.h \
+	    backend.h \
 	    player.h humanplayer.h computerplayer.h
-	   
 
 SOURCES	= pdn.cc \
 	    checkers.cc echeckers.cc rcheckers.cc \
-	    capture.cc theme.cc field.cc toplevel.cc view.cc history.cc board.cc \
+	    capture.cc \
 	    main.cc \
-	    newgamedlg.cc \
+	    backend.cc \
 	    humanplayer.cc computerplayer.cc
 
-RESOURCES = ../qcheckers.qrc ../icons.qrc
+RESOURCES = ../qcheckers.qrc ../icons.qrc ../qml/qml.qrc
 
 TRANSLATIONS	= ../lang/qcheckers_de.ts ../lang/qcheckers_fr.ts ../lang/qcheckers_ru.ts
 QM_FILES_INSTALL_PATH = $$PREFIX/share/qcheckers/lang

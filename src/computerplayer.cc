@@ -18,7 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include <QDebug>
-#include <QApplication>
+#include <QCoreApplication>
 #include <QEvent>
 
 #include "computerplayer.h"
@@ -102,7 +102,7 @@ void myThread::run()
 	m_game->go2();
 	if(!m_aborted) {
 		QEvent* ev = new QEvent(QEvent::MaxUser);
-		QApplication::postEvent(m_player, ev);
+		QCoreApplication::postEvent(m_player, ev);
 	} else {
 		qDebug("thread.aborted.done.");
 	}

@@ -2,6 +2,6 @@ TEMPLATE = subdirs
 
 SUBDIRS += src
 
-QT += widgets
+QT += quick qml
 
 CONFIG += qt debug

@@ -21,58 +21,62 @@
  ***************************************************************************/
 
 #include <QApplication>
+#include <QtGlobal>
 #include <QTranslator>
 #include <QLocale>
 #include <QDebug>
 #include <QLibraryInfo>
 #include <QStandardPaths>
-//#include <QPlastiqueStyle>
+#include <QUrl>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
-
-#include "toplevel.h"
+#include "backend.h"
 #include "common.h"
 
 
 int main(int argc, char *argv[])
 {
-	QApplication app(argc,argv);
+	QApplication app(argc, argv);
+	app.setApplicationName(APPNAME);
+	app.setOrganizationName(APPNAME);
+
 	QString current_lang = QLocale::system().name().split("_").front();
 	QString qt_lang_path = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
-	//QString qcheckers_share_path = PREFIX"/share/qcheckers/lang";
-  QString lang_path = QStandardPaths::locate(QStandardPaths::DataLocation, "lang", QStandardPaths::LocateDirectory);
+	QString lang_path = QStandardPaths::locate(QStandardPaths::DataLocation,
+			"lang", QStandardPaths::LocateDirectory);
 
 	qDebug()
-		<< "Your Locale:" << current_lang << endl
-		<< "QCheckers Translations path:" << lang_path << endl
-		<< "QT Translations path:" << qt_lang_path << endl;
+		<< "Your Locale:" << current_lang
+		<< "QCheckers Translations path:" << lang_path
+		<< "QT Translations path:" << qt_lang_path;
 
-  // Qt translations
-  QTranslator qt_tr;
-  if(qt_tr.load("qt_" + current_lang, qt_lang_path)) {
-    app.installTranslator(&qt_tr);
-  } else {
-    qDebug() << "Loading Qt translations failed.";
-  }
-
-  // App translations
-  QTranslator app_tr;
-  if(app_tr.load("qcheckers_" + current_lang,
-        lang_path)) {
-    app.installTranslator(&app_tr);
-  } else {
-    qDebug() << "Loading QCheckers translations failed.";
-  }
-
-	myTopLevel* top = new myTopLevel();
-	top->show();
-
-	// command line
-	if(app.arguments().length()==2) {
-		top->open(app.arguments()[1]);
+	// Qt translations
+	QTranslator qt_tr;
+	if(qt_tr.load("qt_" + current_lang, qt_lang_path)) {
+		app.installTranslator(&qt_tr);
+	} else {
+		qDebug() << "Loading Qt translations failed.";
 	}
 
-	int exit = app.exec();
+	// App translations
+	QTranslator app_tr;
+	if(app_tr.load("qcheckers_" + current_lang, lang_path)) {
+		app.installTranslator(&app_tr);
+	} else {
+		qDebug() << "Loading QCheckers translations failed.";
+	}
 
-	delete top;
-	return exit;
+	QQmlApplicationEngine engine;
+	GameController* controller = new GameController(&engine);
+	engine.rootContext()->setContextProperty("game", controller);
+	engine.rootContext()->setContextProperty("qtVersionString", QString(qVersion()));
+	engine.load(QUrl("qrc:/qml/main.qml"));
+
+	// command line
+	if(app.arguments().length() == 2) {
+		controller->openGame(app.arguments()[1]);
+	}
+
+	return app.exec();
 }

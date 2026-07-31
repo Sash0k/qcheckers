@@ -21,7 +21,6 @@
  ***************************************************************************/
 #include <QFile>
 #include <QTextStream>
-#include <QProgressDialog>
 #include <QDebug>
 
 #include "checkers.h"
@@ -46,8 +45,7 @@ Pdn::~Pdn()
 }
 
 
-bool Pdn::open(const QString& filename, QWidget* parent,
-		const QString& label, QString& text_to_log)
+bool Pdn::open(const QString& filename, QString& text_to_log)
 {
 	qDeleteAll(m_database);
 	m_database.clear();
@@ -60,12 +58,6 @@ bool Pdn::open(const QString& filename, QWidget* parent,
 	QTextStream ts(&file);
 
 	QString str1, str2;
-
-	QProgressDialog progress(parent);
-	progress.setModal(true);
-	progress.setLabelText(label);
-	progress.setRange(0, file.size());
-	progress.setMinimumDuration(0);
 
 	unsigned int line_nr = 1;
 	unsigned int game_started = 1;
@@ -80,10 +72,6 @@ bool Pdn::open(const QString& filename, QWidget* parent,
 			if(!in_tags) {
 				// tags begin again, so a game is ended.
 				if(str2.length()) {
-					if((m_database.count()%10)==0) {
-						progress.setValue(file.pos());
-					}
-
 					QString log_txt;
 					PdnGame* game = new PdnGame(str2, log_txt);
 					m_database.append(game);
@@ -109,10 +97,6 @@ bool Pdn::open(const QString& filename, QWidget* parent,
 		}
 
 		str2.append(str1+"\n");
-
-		if(progress.wasCanceled()) {
-			break;
-		}
 
 		line_nr++;
 	}

@@ -1,3 +1,7 @@
+RPMS
+*.pro.user*
+*CMakeLists.txt.user*
+build
 *.o
 *.swp
 Makefile
