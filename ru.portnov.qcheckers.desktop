@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.portnov.qcheckers
+Exec=/usr/bin/ru.portnov.qcheckers
+Name=QCheckers
+Name[ru]=Шашки
+
+[X-Application]
+OrganizationName=ru.portnov
+ApplicationName=qcheckers

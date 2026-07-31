@@ -19,64 +19,25 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
-#include <QApplication>
-#include <QtGlobal>
-#include <QTranslator>
-#include <QLocale>
-#include <QDebug>
-#include <QLibraryInfo>
-#include <QStandardPaths>
-#include <QUrl>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
+#include <auroraapp.h>
+#include <QtQuick>
 
 #include "backend.h"
 #include "common.h"
 
-
 int main(int argc, char *argv[])
 {
-	QApplication app(argc, argv);
-	app.setApplicationName(APPNAME);
-	app.setOrganizationName(APPNAME);
-
-	QString current_lang = QLocale::system().name().split("_").front();
-	QString qt_lang_path = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
-	QString lang_path = QStandardPaths::locate(QStandardPaths::DataLocation,
-			"lang", QStandardPaths::LocateDirectory);
-
-	qDebug()
-		<< "Your Locale:" << current_lang
-		<< "QCheckers Translations path:" << lang_path
-		<< "QT Translations path:" << qt_lang_path;
-
-	// Qt translations
-	QTranslator qt_tr;
-	if(qt_tr.load("qt_" + current_lang, qt_lang_path)) {
-		app.installTranslator(&qt_tr);
-	} else {
-		qDebug() << "Loading Qt translations failed.";
-	}
-
-	// App translations
-	QTranslator app_tr;
-	if(app_tr.load("qcheckers_" + current_lang, lang_path)) {
-		app.installTranslator(&app_tr);
-	} else {
-		qDebug() << "Loading QCheckers translations failed.";
-	}
+    QScopedPointer<QGuiApplication> application(Aurora::Application::application(argc, argv));
+    application->setOrganizationName(QStringLiteral("ru.portnov"));
+    application->setApplicationName(QStringLiteral("qcheckers"));
 
 	QQmlApplicationEngine engine;
 	GameController* controller = new GameController(&engine);
-	engine.rootContext()->setContextProperty("game", controller);
-	engine.rootContext()->setContextProperty("qtVersionString", QString(qVersion()));
-	engine.load(QUrl("qrc:/qml/main.qml"));
 
-	// command line
-	if(app.arguments().length() == 2) {
-		controller->openGame(app.arguments()[1]);
-	}
+    QScopedPointer<QQuickView> view(Aurora::Application::createView());
+    view->rootContext()->setContextProperty("game", controller);
+    view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/main.qml")));
+    view->show();
 
-	return app.exec();
+    return application->exec();
 }

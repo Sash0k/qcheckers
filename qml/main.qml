@@ -1,12 +1,18 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.2
+import QtQuick 2.6
+import Sailfish.Silica 1.0
 
 ApplicationWindow {
     id: window
-    visible: true
-    width: 960
-    height: 680
-    title: qsTr("QCheckers")
+    initialPage: Component {
+        Board {
+            anchors.fill: parent
+            anchors.centerIn: parent
+            showNotation: window.showNotation
+            notationAbove: window.notationAbove
+        }
+    }
+    cover: Qt.resolvedUrl
+    allowedOrientations: defaultAllowedOrientations
 
     // ---- user interface state (mirrors the old settings) ----
     property bool showToolbar: false
@@ -74,19 +80,19 @@ ApplicationWindow {
         function onClearLogRequested() { logPanel.clearLog(); }
     }
 
-    onClosing: {
-        if (quitAllowed) {
-            game.storeWindowGeometry(window.x, window.y, window.width, window.height);
-            game.setLastFilename(window.lastFilename);
-            game.storeSettings();
-            return;
-        }
-        close.accepted = false;
-        confirmAndDo(function() {
-            quitAllowed = true;
-            window.close();
-        });
-    }
+//    onClosing: {
+//        if (quitAllowed) {
+//            game.storeWindowGeometry(window.x, window.y, window.width, window.height);
+//            game.setLastFilename(window.lastFilename);
+//            game.storeSettings();
+//            return;
+//        }
+//        close.accepted = false;
+//        confirmAndDo(function() {
+//            quitAllowed = true;
+//            window.close();
+//        });
+//    }
 
     Component.onCompleted: {
         var g = game.windowGeometry();
@@ -158,14 +164,4 @@ ApplicationWindow {
 //    InfoDialog {
 //        id: infoDialog
 //    }
-
-    // -----------------------------------------------------------------
-    //  Central: board
-    // -----------------------------------------------------------------
-    Board {
-        id: board
-        anchors.fill: parent
-        showNotation: window.showNotation
-        notationAbove: window.notationAbove
-    }
 }

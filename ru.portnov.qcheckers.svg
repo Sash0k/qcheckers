@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="86"
+   height="86"
+   viewBox="0 0 86 86"
+   fill="none"
+   version="1.1"
+   id="svg40"
+   sodipodi:docname="icon-launcher-checkerboard-90.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview42"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="9.3488372"
+     inkscape:cx="39.523632"
+     inkscape:cy="43.053483"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg40" />
+  <g
+     clip-path="url(#clip0_1582_44458)"
+     id="g25"
+     transform="rotate(90 43 43)">
+    <mask
+       id="mask0_1582_44458"
+       style="mask-type:alpha"
+       maskUnits="userSpaceOnUse"
+       x="0"
+       y="0"
+       width="86"
+       height="86">
+      <path
+         d="M0 30.0246C0 14.8691 0 9.41638 4.70819 4.70819C9.41638 0 14.8691 0 32.1495 0H53.8505C71.1308 0 76.5836 0 81.2918 4.70819C86 9.41638 86 14.8691 86 32.1495V53.8505C86 71.1308 86 76.5836 81.2918 81.2918C76.5836 86 71.1308 86 53.8505 86H32.1495C14.8691 86 9.41638 86 4.70819 81.2918C0 76.5836 0 71.1308 0 53.8505V30.0246Z"
+         fill="white"
+         id="path2" />
+    </mask>
+    <g
+       mask="url(#mask0_1582_44458)"
+       id="g23"
+       style="display:inline">
+      <rect
+         width="86"
+         height="86"
+         fill="url(#paint0_linear_1582_44458)"
+         id="rect5"
+         x="0"
+         y="0"
+         style="display:inline;fill-rule:nonzero" />
+      <g
+         clip-path="url(#clip_board)"
+         id="g15"
+         style="display:inline">
+        <rect
+           x="13"
+           y="13"
+           width="30"
+           height="30"
+           fill="#1a1a1a"
+           id="rect7" />
+        <rect
+           x="43"
+           y="13"
+           width="30"
+           height="30"
+           fill="#ffffff"
+           id="rect9" />
+        <rect
+           x="13"
+           y="43"
+           width="30"
+           height="30"
+           fill="#ffffff"
+           id="rect11" />
+        <rect
+           x="43"
+           y="43"
+           width="30"
+           height="30"
+           fill="#1a1a1a"
+           id="rect13" />
+      </g>
+    </g>
+  </g>
+  <defs
+     id="defs38">
+    <linearGradient
+       id="paint0_linear_1582_44458"
+       x1="0"
+       y1="0"
+       x2="86"
+       y2="86"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#54656E"
+         id="stop27"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:1;" />
+      <stop
+         offset="1"
+         stop-color="#4A4B59"
+         id="stop29"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+    </linearGradient>
+    <clipPath
+       id="clip_board">
+      <rect
+         x="13"
+         y="13"
+         width="60"
+         height="60"
+         rx="6"
+         id="rect32" />
+    </clipPath>
+    <clipPath
+       id="clip0_1582_44458">
+      <rect
+         width="86"
+         height="86"
+         fill="white"
+         id="rect35" />
+    </clipPath>
+  </defs>
+</svg>
