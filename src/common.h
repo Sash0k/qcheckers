@@ -41,19 +41,16 @@
 #define USER_PATH	".qcheckers"		// in $HOME
 #define THEME_DIR	"themes/"
 
-// some keys for QSettings
-#define CFG_KEY		"/"APPNAME"/"
-
 //
-#define DEFAULT_THEME	"Default"
+#define DEFAULT_THEME	"SVG Classic"
 //
-#define THEME_TILE1	"tile1.png"
-#define THEME_TILE2	"tile2.png"
-#define THEME_FRAME	"frame.png"
-#define THEME_MANBLACK	"manblack.png"
-#define THEME_MANWHITE	"manwhite.png"
-#define THEME_KINGBLACK	"kingblack.png"
-#define THEME_KINGWHITE	"kingwhite.png"
+#define THEME_TILE1	"tile1.svg"
+#define THEME_TILE2	"tile2.svg"
+#define THEME_FRAME	"frame.svg"
+#define THEME_MANBLACK	"manblack.svg"
+#define THEME_MANWHITE	"manwhite.svg"
+#define THEME_KINGBLACK	"kingblack.svg"
+#define THEME_KINGWHITE	"kingwhite.svg"
 #define THEME_FILE	"theme"
 
 //

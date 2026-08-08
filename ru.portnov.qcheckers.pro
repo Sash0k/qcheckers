@@ -11,14 +11,16 @@ HEADERS	= src/pdn.h \
 	    src/capture.h \
 	    src/common.h \
 	    src/backend.h \
-	    src/player.h src/humanplayer.h src/computerplayer.h
+	    src/player.h src/humanplayer.h src/computerplayer.h \
+	    src/settings.h
 
 SOURCES	= src/pdn.cc \
 	    src/checkers.cc src/echeckers.cc src/rcheckers.cc \
 	    src/capture.cc \
 	    src/main.cc \
 	    src/backend.cc \
-	    src/humanplayer.cc src/computerplayer.cc
+	    src/humanplayer.cc src/computerplayer.cc \
+	    src/settings.cpp
 
 RESOURCES = qcheckers.qrc icons.qrc
 

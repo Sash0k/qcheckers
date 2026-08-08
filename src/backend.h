@@ -50,20 +50,20 @@
 #define HUMAN		1
 
 
-#define CFG_THEME_PATH	CFG_KEY"ThemePath"
-#define CFG_FILENAME	CFG_KEY"Filename"
-#define CFG_KEEPDIALOG	CFG_KEY"ShowKeepDialog"
-#define CFG_NOTATION	CFG_KEY"Notation"
-#define CFG_NOT_ABOVE	CFG_KEY"NotationAbove"
-#define CFG_NOT_FONT	CFG_KEY"NotationFont"
-#define CFG_CLEAR_LOG	CFG_KEY"ClearLogOnNewRound"
-#define CFG_SKILL	CFG_KEY"Skill"
-#define CFG_RULES	CFG_KEY"Rules"
-#define CFG_WHITE	CFG_KEY"White"
-#define CFG_PLAYER1	CFG_KEY"Player1"
-#define CFG_PLAYER2	CFG_KEY"Player2"
-#define CFG_OPPONENT	CFG_KEY"Opponent"
-#define CFG_GEOMETRY	CFG_KEY"WindowGeometry"
+#define CFG_THEME_PATH	"ThemePath"
+#define CFG_FILENAME	"Filename"
+#define CFG_KEEPDIALOG	"ShowKeepDialog"
+#define CFG_NOTATION	"Notation"
+#define CFG_NOT_ABOVE	"NotationAbove"
+#define CFG_NOT_FONT	"NotationFont"
+#define CFG_CLEAR_LOG	"ClearLogOnNewRound"
+#define CFG_SKILL	"Skill"
+#define CFG_RULES	"Rules"
+#define CFG_WHITE	"White"
+#define CFG_PLAYER1	"Player1"
+#define CFG_PLAYER2	"Player2"
+#define CFG_OPPONENT	"Opponent"
+#define CFG_GEOMETRY	"WindowGeometry"
 
 
 class myPlayer;
@@ -166,7 +166,7 @@ public:
 	void setTag(PdnGame::Tag, const QString& val);
 	QString getTag(PdnGame::Tag);
 
-	void appendMove(const QString& move, const QString& comment);
+    void appendMove(const QString& move, const QString& comment);
 	int moveCount() const { return m_moves.count() - 1; }
 
 	void setCurrent(const QString& t) { m_currentPlayer = t; emit currentPlayerChanged(); }

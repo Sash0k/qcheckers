@@ -8,7 +8,7 @@ Column {
 
     // сигналы фиктивные. Оставлены для совместимости с AppBarMenu пятой Авроры
     signal refreshButtonClicked()
-    signal openPdnButtonClicked()
+    //signal openPdnButtonClicked()
 
     /** Путь к файлу */
     onSubTitleChanged: {

@@ -1,13 +1,13 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
 	<qresource>
-		<file>icons/theme/frame.png</file>
-		<file>icons/theme/kingwhite.png</file>
-		<file>icons/theme/manwhite.png</file>
-		<file>icons/theme/tile2.png</file>
-		<file>icons/theme/kingblack.png</file>
-		<file>icons/theme/manblack.png</file>
-		<file>icons/theme/tile1.png</file>
+		<file>icons/theme/frame.svg</file>
+		<file>icons/theme/kingwhite.svg</file>
+		<file>icons/theme/manwhite.svg</file>
+		<file>icons/theme/tile2.svg</file>
+		<file>icons/theme/kingblack.svg</file>
+		<file>icons/theme/manblack.svg</file>
+		<file>icons/theme/tile1.svg</file>
 	</qresource>
 </RCC>
 

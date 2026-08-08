@@ -23,12 +23,10 @@ Page {
         anchors.right: parent.right
         source: "../components/" + (isLegacyVersion ? "AppBarLabel.qml" : "AppBarMenu.qml")
         onLoaded: {
-            //item.openPdnButtonClicked.connect(openFileDialog)
             item.refreshButtonClicked.connect(newGame)
         }
         Component.onDestruction: {
             if (item) {
-                //item.openPdnButtonClicked.disconnect(openFileDialog)
                 item.refreshButtonClicked.disconnect(newGame)
             }
         }
@@ -38,7 +36,7 @@ Page {
         anchors.top: appBar.bottom
         width: parent.width
         height: parent.height
-        showNotation: false
+        showNotation: appSettings.notation
         notationAbove: false
     }
 

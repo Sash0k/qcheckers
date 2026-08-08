@@ -51,13 +51,13 @@ ThemeInfo::ThemeInfo(const QString& theme_path, QObject* parent)
 
 	if(theme_path == DEFAULT_THEME) {
 		m_name = QString(DEFAULT_THEME);
-		m_tile1_path = "qrc:/icons/theme/tile1.png";
-		m_tile2_path = "qrc:/icons/theme/tile2.png";
-		m_frame_path = "qrc:/icons/theme/frame.png";
-		m_man_black_path = "qrc:/icons/theme/manblack.png";
-		m_man_white_path = "qrc:/icons/theme/manwhite.png";
-		m_king_black_path = "qrc:/icons/theme/kingblack.png";
-		m_king_white_path = "qrc:/icons/theme/kingwhite.png";
+        m_tile1_path = "qrc:/icons/theme/tile1.svg";
+        m_tile2_path = "qrc:/icons/theme/tile2.svg";
+        m_frame_path = "qrc:/icons/theme/frame.svg";
+        m_man_black_path = "qrc:/icons/theme/manblack.svg";
+        m_man_white_path = "qrc:/icons/theme/manwhite.svg";
+        m_king_black_path = "qrc:/icons/theme/kingblack.svg";
+        m_king_white_path = "qrc:/icons/theme/kingwhite.svg";
 		m_notation_font_color = Qt::white;
 		m_notation_bg_color = Qt::black;
 		m_valid = true;

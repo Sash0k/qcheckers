@@ -11,8 +11,8 @@ PullDownMenu {
         onClicked: refreshButtonClicked()
     }
 
-    MenuItem {
-        text: qsTrId("menu.history")
-        onClicked: openPdnButtonClicked()
-    }
+    //MenuItem {
+    //    text: qsTrId("menu.history")
+    //    onClicked: openPdnButtonClicked()
+    //}
 }

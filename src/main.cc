@@ -23,19 +23,27 @@
 #include <QtQuick>
 
 #include "backend.h"
-#include "common.h"
+#include "settings.h"
 
 int main(int argc, char *argv[])
 {
+    const char* domainName = "ru.portnov";
+    const char* appName = "qcheckers";
+    const char* appVersion = "0.9";
+
     QScopedPointer<QGuiApplication> application(Aurora::Application::application(argc, argv));
-    application->setOrganizationName(QStringLiteral("ru.portnov"));
-    application->setApplicationName(QStringLiteral("qcheckers"));
+    application->setOrganizationName(domainName);
+    application->setApplicationName(appName);
+    application->setApplicationVersion(appVersion);
+
+    qmlRegisterType<Settings>(appName, 0, 9, "Settings");
 
 	QQmlApplicationEngine engine;
 	GameController* controller = new GameController(&engine);
 
     QScopedPointer<QQuickView> view(Aurora::Application::createView());
     view->rootContext()->setContextProperty("game", controller);
+    view->rootContext()->setContextProperty("VERSION", appVersion);
     view->rootContext()->setContextProperty("AURORA_OS_VERSION", AURORA_OS_VERSION);
     view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/qcheckers.qml")));
     view->show();

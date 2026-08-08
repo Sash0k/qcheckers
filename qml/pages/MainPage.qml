@@ -35,6 +35,7 @@ Page {
             Button {
                 text: qsTrId("main:settings")
                 onClicked: {
+                    pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
                 }
             }
         }
