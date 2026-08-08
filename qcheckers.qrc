@@ -1,7 +1,7 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
-	<qresource>
-		<file>README.md</file>
-		<file>COPYING</file>
-	</qresource>
+<RCC>
+    <qresource prefix="/">
+        <file>README.md</file>
+        <file>COPYING</file>
+        <file>icons/logo.svg</file>
+    </qresource>
 </RCC>

@@ -1,4 +1,5 @@
 TARGET = ru.portnov.qcheckers
+DEFINES += AURORA_OS_VERSION=5
 
 CONFIG += \
     auroraapp
@@ -19,9 +20,17 @@ SOURCES	= src/pdn.cc \
 	    src/backend.cc \
 	    src/humanplayer.cc src/computerplayer.cc
 
-RESOURCES = qcheckers.qrc icons.qrc qml/qml.qrc
+RESOURCES = qcheckers.qrc icons.qrc
 
 DISTFILES += \
     rpm/ru.portnov.qcheckers.spec \
 
 AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
+
+CONFIG += \
+    auroraapp_i18n_idbased \
+    auroraapp_i18n \
+
+TRANSLATIONS += \
+    translations/ru.portnov.qcheckers.ts \
+    translations/ru.portnov.qcheckers-ru.ts \

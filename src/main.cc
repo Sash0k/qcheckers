@@ -36,7 +36,8 @@ int main(int argc, char *argv[])
 
     QScopedPointer<QQuickView> view(Aurora::Application::createView());
     view->rootContext()->setContextProperty("game", controller);
-    view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/main.qml")));
+    view->rootContext()->setContextProperty("AURORA_OS_VERSION", AURORA_OS_VERSION);
+    view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/qcheckers.qml")));
     view->show();
 
     return application->exec();
