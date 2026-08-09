@@ -17,7 +17,7 @@ Page {
 
             PageHeader {
                 objectName: "pageHeader"
-                title: qsTrId("menu.settings")
+                title: qsTrId("settings")
             }
 
             ComboBox {
