@@ -11,9 +11,14 @@ ApplicationWindow {
     Settings { id: appSettings }
 
     readonly property bool showNotation: appSettings.notation
-    readonly property int theme: appSettings.theme
+    readonly property var themes: game.themes()
 
     initialPage: Qt.resolvedUrl("pages/MainPage.qml")
     cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
+
+    Component.onCompleted: {
+        var currentTheme = themes[appSettings.theme].path
+        game.setTheme(currentTheme)
+    }
 }

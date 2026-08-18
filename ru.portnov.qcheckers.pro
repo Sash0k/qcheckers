@@ -22,7 +22,7 @@ SOURCES	= src/pdn.cc \
 	    src/humanplayer.cc src/computerplayer.cc \
 	    src/settings.cpp
 
-RESOURCES = qcheckers.qrc icons.qrc
+RESOURCES = qcheckers.qrc icons.qrc themes.qrc
 
 DISTFILES += \
     rpm/ru.portnov.qcheckers.spec \

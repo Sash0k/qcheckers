@@ -234,7 +234,6 @@ class GameController : public QObject
 	Q_PROPERTY(bool working READ working NOTIFY workingChanged)
 	Q_PROPERTY(bool aborted READ aborted NOTIFY abortedChanged)
 	Q_PROPERTY(QString gameTypeName READ gameTypeName NOTIFY gameChanged)
-	Q_PROPERTY(QString themePath READ themePath WRITE setThemePath)
 	Q_PROPERTY(bool clearLog READ clearLog WRITE setClearLog)
 	Q_PROPERTY(bool keepDialog READ keepDialog WRITE setKeepDialog)
 	Q_PROPERTY(QFont notationFont READ notationFont WRITE setNotationFont)
@@ -252,14 +251,11 @@ public:
 	bool working() const { return m_working; }
 	bool aborted() const { return m_aborted; }
 	QString gameTypeName() const;
-
-	QString themePath() const { return m_themePath; }
 	bool clearLog() const { return m_clearLog; }
 	bool keepDialog() const { return m_keepDialog; }
 	QFont notationFont() const { return m_notationFont; }
 
 public slots:
-	void setThemePath(const QString& path) { setTheme(path); }
 	void setClearLog(bool b) { m_clearLog = b; m_settings->setValue(CFG_CLEAR_LOG, b); }
 	void setKeepDialog(bool b) { m_keepDialog = b; m_settings->setValue(CFG_KEEPDIALOG, b); }
 	void setNotationFont(const QFont& f) { m_notationFont = f; m_settings->setValue(CFG_NOT_FONT, f.toString()); }

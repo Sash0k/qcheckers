@@ -33,17 +33,16 @@ Page {
                 label: qsTrId("settings.theme")
                 currentIndex: appSettings.theme
                 menu: ContextMenu {
-                    MenuItem { onClicked: appSettings.theme = 0; text: "SVG Classic" }
-                    /*
-                    MenuItem { onClicked: appSettings.theme = 1; text: "3D Mark II" }
-                    MenuItem { onClicked: appSettings.theme = 2; text: "Simple 3D" }
-                    MenuItem { onClicked: appSettings.theme = 3; text: "Printed Chart" }
-                    MenuItem { onClicked: appSettings.theme = 4; text: "English" }
-                    MenuItem { onClicked: appSettings.theme = 5; text: "Marble" }
-                    MenuItem { onClicked: appSettings.theme = 6; text: "Green marble" }
-                    MenuItem { onClicked: appSettings.theme = 7; text: "Simple SVG" }
-                    MenuItem { onClicked: appSettings.theme = 8; text: "Wood 3D" }
-                    */
+                    Repeater {
+                        model: themes
+                        MenuItem {
+                            text: modelData.name
+                            onClicked: {
+                                game.setTheme(modelData.path)
+                                appSettings.theme = index
+                            }
+                        }
+                    }
                 }
             }
 

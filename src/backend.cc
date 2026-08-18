@@ -539,23 +539,12 @@ QVariantList GameController::themes() const
 	def["path"] = DEFAULT_THEME;
 	result.append(def);
 
-	QStringList paths;
-	paths << QDir::homePath() + "/" USER_PATH "/" THEME_DIR;
-	QString system = QStandardPaths::locate(QStandardPaths::DataLocation,
-			THEME_DIR, QStandardPaths::LocateDirectory);
-	if(!system.isEmpty())
-		paths << system;
-
-	foreach(QString path, paths) {
-		QDir dir(path);
-		if(!dir.exists())
-			continue;
-
-		QStringList sub = dir.entryList(QDir::Dirs | QDir::Readable);
-		sub.removeAll(".");
-		sub.removeAll("..");
-		foreach(QString s, sub) {
-			QString theme_dir = dir.absoluteFilePath(s);
+	// Builtin themes, embedded in the application resources.
+	QDir resources(":/themes");
+	if(resources.exists()) {
+		QStringList dirs = resources.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+		foreach(QString s, dirs) {
+			QString theme_dir = resources.absoluteFilePath(s);
 			ThemeInfo* info = new ThemeInfo(theme_dir, 0);
 			if(info->isValid()) {
 				QVariantMap m;
@@ -566,7 +555,6 @@ QVariantList GameController::themes() const
 			delete info;
 		}
 	}
-
 	return result;
 }
 
