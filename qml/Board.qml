@@ -99,9 +99,9 @@ Item {
             // selection / last-move highlight
             Image {
                 anchors.fill: parent
-                source: tile.field === game.selectedField
+                source: tile.field >= 0 && (tile.field === game.selectedField
                         || tile.field === boardRoot.lastFrom
-                        || tile.field === boardRoot.lastTo
+                        || tile.field === boardRoot.lastTo)
                         ? game.theme.frame : ""
                 opacity: tile.field === game.selectedField ? 1.0 : 0.55
             }
