@@ -35,7 +35,7 @@ Page {
     Board {
         anchors.top: appBar.bottom
         width: parent.width
-        height: parent.height
+        height: parent.height - appBar.height
         showNotation: appSettings.notation
         notationAbove: false
     }

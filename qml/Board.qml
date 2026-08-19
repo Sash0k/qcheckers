@@ -53,63 +53,69 @@ Item {
         return "";
     }
 
-    Repeater {
+    Item {
+        width: boardRoot.cellSize * 8
+        height: boardRoot.cellSize * 8
+        anchors.centerIn: parent
+
+        Repeater {
         model: 64
 
-        Item {
-            id: tile
-            width: boardRoot.cellSize
-            height: boardRoot.cellSize
-            x: (index % 8) * width
-            y: Math.floor(index / 8) * height
+            Item {
+                id: tile
+                width: boardRoot.cellSize
+                height: boardRoot.cellSize
+                x: (index % 8) * width
+                y: Math.floor(index / 8) * height
 
-            property int field: boardRoot.fieldIndex(index)
-            property bool dark: field >= 0
+                property int field: boardRoot.fieldIndex(index)
+                property bool dark: field >= 0
 
-            Image {
-                anchors.fill: parent
-                source: tile.dark ? game.theme.tile2 : game.theme.tile1
-            }
-
-            Image {
-                anchors.fill: parent
-                anchors.margins: 1
-                source: tile.dark ? boardRoot.pieceSource(tile.field) : ""
-                fillMode: Image.PreserveAspectFit
-            }
-
-            // notation label
-            Rectangle {
-                id: notationBg
-                visible: boardRoot.showNotation && tile.dark
-                z: boardRoot.notationAbove ? 3 : 0
-                width: notationLabel.width + 2
-                height: notationLabel.height
-                anchors.top: parent.top
-                anchors.left: parent.left
-                color: game.theme.notationBackgroundColor
-                Text {
-                    id: notationLabel
-                    text: tile.dark ? game.labels[tile.field] : ""
-                    color: game.theme.notationFontColor
-                    font.pixelSize: Math.max(8, boardRoot.cellSize / 5)
+                Image {
+                    anchors.fill: parent
+                    source: tile.dark ? game.theme.tile2 : game.theme.tile1
                 }
-            }
 
-            // selection / last-move highlight
-            Image {
-                anchors.fill: parent
-                source: tile.field >= 0 && (tile.field === game.selectedField
-                        || tile.field === boardRoot.lastFrom
-                        || tile.field === boardRoot.lastTo)
-                        ? game.theme.frame : ""
-                opacity: tile.field === game.selectedField ? 1.0 : 0.55
-            }
+                Image {
+                    anchors.fill: parent
+                    anchors.margins: 1
+                    source: tile.dark ? boardRoot.pieceSource(tile.field) : ""
+                    fillMode: Image.PreserveAspectFit
+                }
 
-            MouseArea {
-                anchors.fill: parent
-                enabled: tile.dark
-                onClicked: game.clickField(tile.field)
+                // notation label
+                Rectangle {
+                    id: notationBg
+                    visible: boardRoot.showNotation && tile.dark
+                    z: boardRoot.notationAbove ? 3 : 0
+                    width: notationLabel.width + 2
+                    height: notationLabel.height
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    color: game.theme.notationBackgroundColor
+                    Text {
+                        id: notationLabel
+                        text: tile.dark ? game.labels[tile.field] : ""
+                        color: game.theme.notationFontColor
+                        font.pixelSize: Math.max(8, boardRoot.cellSize / 5)
+                    }
+                }
+
+                // selection / last-move highlight
+                Image {
+                    anchors.fill: parent
+                    source: tile.field >= 0 && (tile.field === game.selectedField
+                            || tile.field === boardRoot.lastFrom
+                            || tile.field === boardRoot.lastTo)
+                            ? game.theme.frame : ""
+                    opacity: tile.field === game.selectedField ? 1.0 : 0.55
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    enabled: tile.dark
+                    onClicked: game.clickField(tile.field)
+                }
             }
         }
     }
