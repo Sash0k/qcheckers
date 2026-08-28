@@ -21,37 +21,37 @@ Page {
             preferredWidth: Theme.buttonWidthLarge
 
             Button {
-                text: qsTrId("level:beginner")
+                text: qsTr("Beginner")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("GamePage.qml"), { "level": 2 })
                 }
             }
             Button {
-                text: qsTrId("level:novice")
+                text: qsTr("Novice")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("GamePage.qml"), { "level": 4 })
                 }
             }
             Button {
-                text: qsTrId("level:average")
+                text: qsTr("Average")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("GamePage.qml"), { "level": 6 })
                 }
             }
             Button {
-                text: qsTrId("level:good")
+                text: qsTr("Good")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("GamePage.qml"), { "level": 7 })
                 }
             }
             Button {
-                text: qsTrId("level:expert")
+                text: qsTr("Expert")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("GamePage.qml"), { "level": 8 })
                 }
             }
             Button {
-                text: qsTrId("level:master")
+                text: qsTr("Master")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("GamePage.qml"), { "level": 9 })
                 }

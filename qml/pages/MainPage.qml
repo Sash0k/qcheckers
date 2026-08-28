@@ -21,19 +21,19 @@ Page {
             preferredWidth: Theme.buttonWidthLarge
 
             Button {
-                text: qsTrId("main:play")
+                text: qsTr("Play Game")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("LevelPage.qml"))
                 }
             }
             Button {
-                text: qsTrId("main:multiplayer")
+                text: qsTr("Multiplayer")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("GamePage.qml"), { "opponent": 1 })
                 }
             }
             Button {
-                text: qsTrId("settings")
+                text: qsTr("Settings")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
                 }

@@ -25,7 +25,7 @@ AppBar {
 
     PopupMenu {
         id: menu
-        PopupMenuItem { text: qsTrId("menu.refresh"); onClicked: refreshButtonClicked() }
-        //PopupMenuItem { text: qsTrId("menu.history"); onClicked: openPdnButtonClicked() }
+        PopupMenuItem { text: qsTr("New Game"); onClicked: refreshButtonClicked() }
+        //PopupMenuItem { text: qsTr("menu.history"); onClicked: openPdnButtonClicked() }
     }
 }

@@ -17,20 +17,20 @@ Page {
 
             PageHeader {
                 objectName: "pageHeader"
-                title: qsTrId("settings")
+                title: qsTr("Settings")
             }
 
             ComboBox {
-                label: qsTrId("settings.notation")
+                label: qsTr("Show notation")
                 currentIndex: appSettings.notation
                 menu: ContextMenu {
-                    MenuItem { onClicked: appSettings.notation = 0; text: qsTrId("no") }
-                    MenuItem { onClicked: appSettings.notation = 1; text: qsTrId("yes") }
+                    MenuItem { onClicked: appSettings.notation = 0; text: qsTr("No") }
+                    MenuItem { onClicked: appSettings.notation = 1; text: qsTr("Yes") }
                 }
             }
 
             ComboBox {
-                label: qsTrId("settings.theme")
+                label: qsTr("Theme")
                 currentIndex: appSettings.theme
                 menu: ContextMenu {
                     Repeater {
@@ -48,7 +48,7 @@ Page {
 
             PageHeader {
                 objectName: "pageHeader"
-                title: qsTrId("menu.about")
+                title: qsTr("About")
             }
 
             Label {
@@ -57,17 +57,8 @@ Page {
                 font.pixelSize: Theme.fontSizeSmall
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
-                text: qsTrId("appName") + " v-" + VERSION + " " + qsTrId("osversion") + " " + AURORA_OS_VERSION + "<br><br>" + qsTrId("about.description") + "<br>"
+                text: qsTr("QCheckers") + " v-" + VERSION + " " + qsTr("for Aurora OS") + " " + AURORA_OS_VERSION + "<br><a href=\"https://portnov.github.io/qcheckers\">https://portnov.github.io/qcheckers</a>"
             }
-
-           ButtonLayout {
-
-               Button {
-                   preferredWidth: Theme.buttonWidthMedium
-                   text: qsTrId("about.sources")
-                   onClicked: { Qt.openUrlExternally("https:/portnov.github.io/qcheckers") }
-               }
-           }
        }
     }
 }

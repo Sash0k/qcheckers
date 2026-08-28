@@ -1,8 +1,7 @@
 TARGET = ru.portnov.qcheckers
 DEFINES += AURORA_OS_VERSION=5
 
-CONFIG += \
-    auroraapp
+CONFIG += auroraapp auroraapp_i18n
 
 PKGCONFIG += \
 
@@ -28,10 +27,6 @@ DISTFILES += \
     rpm/ru.portnov.qcheckers.spec \
 
 AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
-
-CONFIG += \
-    auroraapp_i18n_idbased \
-    auroraapp_i18n \
 
 TRANSLATIONS += \
     translations/ru.portnov.qcheckers.ts \

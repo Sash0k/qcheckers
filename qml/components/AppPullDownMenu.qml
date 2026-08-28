@@ -7,12 +7,12 @@ PullDownMenu {
     signal openPdnButtonClicked()
 
     MenuItem {
-        text: qsTrId("menu.refresh")
+        text: qsTr("New Game")
         onClicked: refreshButtonClicked()
     }
 
     //MenuItem {
-    //    text: qsTrId("menu.history")
+    //    text: qsTr("menu.history")
     //    onClicked: openPdnButtonClicked()
     //}
 }

@@ -6,7 +6,7 @@ CoverBackground {
 
     CoverPlaceholder {
         objectName: "placeholder"
-        text: qsTrId("appName")
+        text: qsTr("QCheckers")
         icon {
             source: "qrc:/icons/logo.svg"
             sourceSize { width: icon.width; height: icon.height }

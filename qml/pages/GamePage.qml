@@ -52,12 +52,12 @@ Page {
         target: game.history
         onCurrentPlayerChanged: {
             appBar.item.subTitle = ""
-            appBar.item.title = qsTrId("game.turn") + " " + game.history.currentPlayer
+            appBar.item.title = qsTr("Move:") + " " + game.history.currentPlayer
         }
     }
 
     /** Старт новой игры */
     function newGame() {
-        game.newGame(mode, false, qsTrId("game.white"), true, opponent, qsTrId("game.black"), level)
+        game.newGame(mode, false, qsTr("White"), true, opponent, qsTr("Black"), level)
     }
 }
