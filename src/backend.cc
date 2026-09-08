@@ -124,12 +124,6 @@ void HistoryController::clear()
 	m_tags.clear();
 	m_moves.clear();
 
-	QVariantMap root;
-	root["number"] = "";
-	root["move"] = "";
-	root["comment"] = "";
-	m_moves.append(root);
-
 	m_gameIndex = 0;
 	m_currentMoveIndex = 0;
 	m_game = 0;
@@ -453,10 +447,6 @@ GameController::GameController(QObject* parent)
 	readSettings();
 
 	setTheme(m_themePath);
-
-	// start a default game, like the old main window did.
-	newGame(m_cfgRules, false, m_cfgPlayer1, m_cfgWhite,
-			m_cfgOpponent, m_cfgPlayer2, m_cfgSkill);
 }
 
 
