@@ -28,37 +28,37 @@
 <context>
     <name>GameController</name>
     <message>
-        <location filename="../src/backend.cc" line="798"/>
+        <location filename="../src/backend.cc" line="788"/>
         <source>Invalid move.</source>
         <translation>Неверный ход.</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="990"/>
+        <location filename="../src/backend.cc" line="980"/>
         <source>Drawn game.</source>
         <translation>Ничья.</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="1004"/>
+        <location filename="../src/backend.cc" line="994"/>
         <source>White wins!</source>
         <translation>Белые выиграли!</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="1007"/>
+        <location filename="../src/backend.cc" line="997"/>
         <source>Black wins!</source>
         <translation>Чёрные выиграли!</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="1054"/>
+        <location filename="../src/backend.cc" line="1044"/>
         <source>Opened:</source>
         <translation>Открыто:</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="1056"/>
+        <location filename="../src/backend.cc" line="1046"/>
         <source>Warning! Some errors occured.</source>
         <translation>Ошибка.</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="1069"/>
+        <location filename="../src/backend.cc" line="1059"/>
         <source>Saved:</source>
         <translation>Сохранено:</translation>
     </message>
@@ -71,12 +71,14 @@
         <translation>Ход:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="61"/>
+        <location filename="../qml/pages/GamePage.qml" line="62"/>
+        <location filename="../qml/pages/GamePage.qml" line="63"/>
         <source>White</source>
         <translation>белые</translation>
     </message>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="61"/>
+        <location filename="../qml/pages/GamePage.qml" line="62"/>
+        <location filename="../qml/pages/GamePage.qml" line="63"/>
         <source>Black</source>
         <translation>чёрные</translation>
     </message>
@@ -84,17 +86,17 @@
 <context>
     <name>HistoryController</name>
     <message>
-        <location filename="../src/backend.cc" line="144"/>
+        <location filename="../src/backend.cc" line="138"/>
         <source>English draughts</source>
         <translation>Английские шашки</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="145"/>
+        <location filename="../src/backend.cc" line="139"/>
         <source>Russian draughts</source>
         <translation>Русские шашки</translation>
     </message>
     <message>
-        <location filename="../src/backend.cc" line="147"/>
+        <location filename="../src/backend.cc" line="141"/>
         <source>Unknown game type</source>
         <translation>Неизвестная игра</translation>
     </message>
@@ -167,36 +169,51 @@
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="24"/>
+        <source>Your side</source>
+        <translation>Играть за</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="27"/>
+        <source>Black</source>
+        <translation>Чёрные</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="28"/>
+        <source>White</source>
+        <translation>Белые</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="33"/>
         <source>Show notation</source>
         <translation>Показывать нотацию</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="27"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="36"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="28"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="37"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="33"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="42"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="51"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="60"/>
         <source>About</source>
         <translation>О приложении</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="60"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="69"/>
         <source>QCheckers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="60"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="69"/>
         <source>for Aurora OS</source>
         <translation>порт для Авроры</translation>
     </message>

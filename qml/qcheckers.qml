@@ -10,7 +10,6 @@ ApplicationWindow {
     /* Настройки приложения */
     Settings { id: appSettings }
 
-    readonly property bool showNotation: appSettings.notation
     readonly property var themes: game.themes()
 
     initialPage: Qt.resolvedUrl("pages/MainPage.qml")

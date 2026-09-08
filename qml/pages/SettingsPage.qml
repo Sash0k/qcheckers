@@ -21,6 +21,15 @@ Page {
             }
 
             ComboBox {
+                label: qsTr("Your side")
+                currentIndex: appSettings.isWhite
+                menu: ContextMenu {
+                    MenuItem { onClicked: appSettings.isWhite = 0; text: qsTr("Black") }
+                    MenuItem { onClicked: appSettings.isWhite = 1; text: qsTr("White") }
+                }
+            }
+
+            ComboBox {
                 label: qsTr("Show notation")
                 currentIndex: appSettings.notation
                 menu: ContextMenu {

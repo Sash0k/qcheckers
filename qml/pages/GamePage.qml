@@ -58,6 +58,9 @@ Page {
 
     /** Старт новой игры */
     function newGame() {
-        game.newGame(mode, false, qsTr("White"), true, opponent, qsTr("Black"), level)
+        var isWhite = appSettings.isWhite;
+        var player1 = isWhite ? qsTr("White") : qsTr("Black");
+        var player2 = isWhite ? qsTr("Black") : qsTr("White");
+        game.newGame(mode, false, player1, isWhite, opponent, player2, level);
     }
 }

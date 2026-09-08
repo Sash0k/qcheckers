@@ -2,6 +2,7 @@
 #include "settings.h"
 
 // Ключи настроек в файле
+const QString Settings::s_isWhiteKey = "white";
 const QString Settings::s_notationKey = "notation";
 const QString Settings::s_themeKey = "theme";
 
@@ -15,6 +16,12 @@ Settings::Settings(const QString &confFilePath, QObject *parent) : QObject(paren
     }
 }
 
+void Settings::setIsWhite(const bool white)
+{
+    setValue(s_isWhiteKey, white);
+    emit whiteSideChanged(white);
+}
+
 void Settings::setShowNotation(const bool notation)
 {
     setValue(s_notationKey, notation);
@@ -25,6 +32,11 @@ void Settings::setTheme(const int theme)
 {
     setValue(s_themeKey, theme);
     emit themeChanged(theme);
+}
+
+bool Settings::isWhite() const
+{
+    return value(s_isWhiteKey, true).toBool();
 }
 
 bool Settings::notation() const
