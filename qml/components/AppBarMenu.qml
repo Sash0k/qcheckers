@@ -10,7 +10,7 @@ AppBar {
     property alias subTitle: appBar.subHeaderText
 
     signal refreshButtonClicked()
-    //signal openPdnButtonClicked()
+    signal openHistoryButtonClicked()
 
     onSubTitleChanged: {
         var current = appBar.subHeaderText
@@ -26,6 +26,6 @@ AppBar {
     PopupMenu {
         id: menu
         PopupMenuItem { text: qsTr("New Game"); onClicked: refreshButtonClicked() }
-        //PopupMenuItem { text: qsTr("menu.history"); onClicked: openPdnButtonClicked() }
+        PopupMenuItem { text: qsTr("Show History"); onClicked: openHistoryButtonClicked() }
     }
 }

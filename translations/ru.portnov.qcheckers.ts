@@ -8,6 +8,11 @@
         <source>New Game</source>
         <translation>New Game</translation>
     </message>
+    <message>
+        <location filename="../qml/components/AppBarMenu.qml" line="29"/>
+        <source>Show History</source>
+        <translation>Show History</translation>
+    </message>
 </context>
 <context>
     <name>AppPullDownMenu</name>
@@ -15,6 +20,11 @@
         <location filename="../qml/components/AppPullDownMenu.qml" line="10"/>
         <source>New Game</source>
         <translation>New Game</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/AppPullDownMenu.qml" line="15"/>
+        <source>Show History</source>
+        <translation>Show History</translation>
     </message>
 </context>
 <context>
@@ -66,19 +76,19 @@
 <context>
     <name>GamePage</name>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="55"/>
+        <location filename="../qml/pages/GamePage.qml" line="57"/>
         <source>Move:</source>
         <translation>Move:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="62"/>
-        <location filename="../qml/pages/GamePage.qml" line="63"/>
+        <location filename="../qml/pages/GamePage.qml" line="64"/>
+        <location filename="../qml/pages/GamePage.qml" line="65"/>
         <source>White</source>
         <translation>a white</translation>
     </message>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="62"/>
-        <location filename="../qml/pages/GamePage.qml" line="63"/>
+        <location filename="../qml/pages/GamePage.qml" line="64"/>
+        <location filename="../qml/pages/GamePage.qml" line="65"/>
         <source>Black</source>
         <translation>a black</translation>
     </message>
@@ -99,6 +109,19 @@
         <location filename="../src/backend.cc" line="141"/>
         <source>Unknown game type</source>
         <translation>Unknown game</translation>
+    </message>
+</context>
+<context>
+    <name>HistoryPage</name>
+    <message>
+        <location filename="../qml/pages/HistoryPage.qml" line="27"/>
+        <source>History</source>
+        <translation>History</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/HistoryPage.qml" line="36"/>
+        <source>QCheckers</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

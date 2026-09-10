@@ -24,10 +24,12 @@ Page {
         source: "../components/" + (isLegacyVersion ? "AppBarLabel.qml" : "AppBarMenu.qml")
         onLoaded: {
             item.refreshButtonClicked.connect(newGame)
+            item.openHistoryButtonClicked.connect(showHistory)
         }
         Component.onDestruction: {
             if (item) {
                 item.refreshButtonClicked.disconnect(newGame)
+                item.openHistoryButtonClicked.disconnect(showHistory)
             }
         }
     }
@@ -62,5 +64,11 @@ Page {
         var player1 = isWhite ? qsTr("White") : qsTr("Black");
         var player2 = isWhite ? qsTr("Black") : qsTr("White");
         game.newGame(mode, false, player1, isWhite, opponent, player2, level);
+    }
+
+    /** Показать историю игры */
+    function showHistory() {
+        var history = game.history.moves
+        pageStack.push(Qt.resolvedUrl("HistoryPage.qml"), { "historyModel": history })
     }
 }

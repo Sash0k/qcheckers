@@ -4,15 +4,15 @@ import Sailfish.Silica 1.0
 /** Меню приложения, для старых версий */
 PullDownMenu {
     signal refreshButtonClicked()
-    signal openPdnButtonClicked()
+    signal openHistoryButtonClicked()
 
     MenuItem {
         text: qsTr("New Game")
         onClicked: refreshButtonClicked()
     }
 
-    //MenuItem {
-    //    text: qsTr("menu.history")
-    //    onClicked: openPdnButtonClicked()
-    //}
+    MenuItem {
+        text: qsTr("Show History")
+        onClicked: openHistoryButtonClicked()
+    }
 }
