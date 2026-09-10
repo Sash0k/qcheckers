@@ -60,13 +60,42 @@ Page {
                 title: qsTr("About")
             }
 
-            Label {
-                objectName: "descriptionText"
-                anchors { left: parent.left; right: parent.right; margins: Theme.horizontalPageMargin }
-                font.pixelSize: Theme.fontSizeSmall
-                textFormat: Text.RichText
-                wrapMode: Text.WordWrap
-                text: qsTr("QCheckers") + " v-" + VERSION + " " + qsTr("for Aurora OS") + " " + AURORA_OS_VERSION + "<br><a href=\"https://portnov.github.io/qcheckers\">https://portnov.github.io/qcheckers</a>"
+            Column {
+                width: parent.width
+                spacing: 15
+
+                Label {
+                    objectName: "descriptionName"
+                    anchors { horizontalCenter: parent.horizontalCenter; margins: Theme.horizontalPageMargin }
+                    font.pixelSize: Theme.fontSizeMedium
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Russian draughts") + " (" + qsTr("version") + " " + VERSION + ")"
+                }
+
+                Label {
+                    objectName: "descriptionText"
+                    anchors { horizontalCenter: parent.horizontalCenter; margins: Theme.horizontalPageMargin }
+                    font.pixelSize: Theme.fontSizeMedium
+                    wrapMode: Text.WordWrap
+                    text: qsTr("QCheckers for Aurora OS") + " " + AURORA_OS_VERSION + ". GPLv2."
+                }
+
+                Label {
+                    objectName: "descriptionNote"
+                    anchors { horizontalCenter: parent.horizontalCenter; margins: Theme.horizontalPageMargin }
+                    font.pixelSize: Theme.fontSizeMedium
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Made with AI.")
+                }
+
+                LinkedLabel {
+                    anchors { horizontalCenter: parent.horizontalCenter; margins: Theme.horizontalPageMargin }
+                    font.pixelSize: Theme.fontSizeMedium
+                    textFormat: Text.RichText
+                    wrapMode: Text.WordWrap
+                    defaultLinkActions: true
+                    text: "<a href=\"https://portnov.github.io/qcheckers\">https://portnov.github.io</a>"
+                }
             }
        }
     }

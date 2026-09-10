@@ -118,11 +118,6 @@
         <source>History</source>
         <translation>История</translation>
     </message>
-    <message>
-        <location filename="../qml/pages/HistoryPage.qml" line="36"/>
-        <source>QCheckers</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>LevelPage</name>
@@ -231,14 +226,24 @@
         <translation>О приложении</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="69"/>
-        <source>QCheckers</source>
-        <translation type="unfinished"></translation>
+        <location filename="../qml/pages/SettingsPage.qml" line="72"/>
+        <source>Russian draughts</source>
+        <translation>Русские шашки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="69"/>
-        <source>for Aurora OS</source>
-        <translation>порт для Авроры</translation>
+        <location filename="../qml/pages/SettingsPage.qml" line="72"/>
+        <source>version</source>
+        <translation>версия</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="80"/>
+        <source>QCheckers for Aurora OS</source>
+        <translation>Порт QCheckers для Авроры</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="88"/>
+        <source>Made with AI.</source>
+        <translation>Сделано с помощью ИИ.</translation>
     </message>
 </context>
 <context>
