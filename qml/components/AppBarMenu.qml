@@ -12,10 +12,6 @@ AppBar {
     signal refreshButtonClicked()
     signal openHistoryButtonClicked()
 
-    onSubTitleChanged: {
-        var current = appBar.subHeaderText
-    }
-
     AppBarSpacer {}
 
     AppBarButton {

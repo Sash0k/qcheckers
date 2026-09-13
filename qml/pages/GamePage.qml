@@ -1,45 +1,58 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import ".."
+import "../components"
 
 Page {
     objectName: "gamePage"
     allowedOrientations: Orientation.All
 
-    /* Общие свойства приложения */
     readonly property bool isLegacyVersion: AURORA_OS_VERSION < 5
-
+    /* Общие свойства приложения */
     property int mode: 25     // 21 = English draughts, 25 = Russian draughts
     property int opponent: 0  // COMPUTER = 0, HUMAN = 1
     property int level: 2     // BEGINNER = 2, NOVICE = 4, AVERAGE = 6, GOOD = 7, EXPERT = 8, MASTER = 9
 
     Component.onCompleted: { newGame() }
 
-    /** Верхняя панель */
-    Loader {
-        id: appBar
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        source: "../components/" + (isLegacyVersion ? "AppBarLabel.qml" : "AppBarMenu.qml")
-        onLoaded: {
-            item.refreshButtonClicked.connect(newGame)
-            item.openHistoryButtonClicked.connect(showHistory)
+    SilicaFlickable {
+        anchors.fill: parent
+        pullDownMenu: appPullDownMenu
+
+        AppPullDownMenu {
+            id: appPullDownMenu
+            visible: isLegacyVersion
+            onRefreshButtonClicked: newGame()
+            onOpenHistoryButtonClicked: showHistory()
         }
-        Component.onDestruction: {
-            if (item) {
-                item.refreshButtonClicked.disconnect(newGame)
-                item.openHistoryButtonClicked.disconnect(showHistory)
+
+        /** Верхняя панель */
+        Loader {
+            id: appBar
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            source: "../components/" + (isLegacyVersion ? "AppBarLegacy.qml" : "AppBarMenu.qml")
+            onLoaded: {
+                item.refreshButtonClicked.connect(newGame)
+                item.openHistoryButtonClicked.connect(showHistory)
+            }
+            Component.onDestruction: {
+                if (item) {
+                    item.refreshButtonClicked.disconnect(newGame)
+                    item.openHistoryButtonClicked.disconnect(showHistory)
+                }
             }
         }
-    }
 
-    Board {
-        anchors.top: appBar.bottom
-        width: parent.width
-        height: parent.height - appBar.height
-        showNotation: appSettings.notation
-        notationAbove: false
+        /** Шахматная доска */
+        Board {
+            anchors.top: appBar.bottom
+            width: parent.width
+            height: parent.height - appBar.height
+            showNotation: appSettings.notation
+            notationAbove: false
+        }
     }
 
     Connections {

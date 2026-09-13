@@ -4,12 +4,12 @@
 <context>
     <name>AppBarMenu</name>
     <message>
-        <location filename="../qml/components/AppBarMenu.qml" line="28"/>
+        <location filename="../qml/components/AppBarMenu.qml" line="24"/>
         <source>New Game</source>
         <translation>Новая игра</translation>
     </message>
     <message>
-        <location filename="../qml/components/AppBarMenu.qml" line="29"/>
+        <location filename="../qml/components/AppBarMenu.qml" line="25"/>
         <source>Show History</source>
         <translation>История ходов</translation>
     </message>
@@ -25,6 +25,14 @@
         <location filename="../qml/components/AppPullDownMenu.qml" line="15"/>
         <source>Show History</source>
         <translation>История ходов</translation>
+    </message>
+</context>
+<context>
+    <name>AppPullDownMenuHistory</name>
+    <message>
+        <location filename="../qml/components/AppPullDownMenuHistory.qml" line="9"/>
+        <source>Share</source>
+        <translation>Поделиться...</translation>
     </message>
 </context>
 <context>
@@ -76,19 +84,19 @@
 <context>
     <name>GamePage</name>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="57"/>
+        <location filename="../qml/pages/GamePage.qml" line="70"/>
         <source>Move:</source>
         <translation>Ход:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="64"/>
-        <location filename="../qml/pages/GamePage.qml" line="65"/>
+        <location filename="../qml/pages/GamePage.qml" line="77"/>
+        <location filename="../qml/pages/GamePage.qml" line="78"/>
         <source>White</source>
         <translation>белые</translation>
     </message>
     <message>
-        <location filename="../qml/pages/GamePage.qml" line="64"/>
-        <location filename="../qml/pages/GamePage.qml" line="65"/>
+        <location filename="../qml/pages/GamePage.qml" line="77"/>
+        <location filename="../qml/pages/GamePage.qml" line="78"/>
         <source>Black</source>
         <translation>чёрные</translation>
     </message>
@@ -114,9 +122,9 @@
 <context>
     <name>HistoryPage</name>
     <message>
-        <location filename="../qml/pages/HistoryPage.qml" line="27"/>
+        <location filename="../qml/pages/HistoryPage.qml" line="58"/>
         <source>History</source>
-        <translation>История</translation>
+        <translation>История ходов</translation>
     </message>
 </context>
 <context>

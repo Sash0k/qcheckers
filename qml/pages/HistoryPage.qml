@@ -2,11 +2,13 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import Sailfish.Share 1.0
 import Aurora.Controls 1.0
+import "../components"
 
 Page {
     objectName: "historyPage"
     allowedOrientations: Orientation.All
 
+    readonly property bool isLegacyVersion: AURORA_OS_VERSION < 5
     /** История ходов для отображения */
     property var historyModel
 
@@ -21,48 +23,71 @@ Page {
         return result
     }
 
-    /** Верхняя панель */
-    AppBar {
-        id: appBar
-        headerText: qsTr("History")
+    ShareAction { id: shareAction; mimeType: "text/plain" }
 
-        AppBarSpacer {}
-
-        AppBarButton {
-            icon.source: "image://theme/icon-splus-share"
-            ShareAction { id: shareAction; mimeType: "text/plain" }
-            onClicked: {
-                var content = {
-                    "name": "QCheckers PDN",
-                    "data": history.text
-                }
-                shareAction.resources = [content]
-                shareAction.trigger()
+    function share() {
+        if (history.text) {
+            var content = {
+                "name": "QCheckers PDN",
+                "data": history.text
             }
+            shareAction.resources = [content]
+            shareAction.trigger()
         }
     }
 
-    /** Прокручиваемый лог */
     SilicaFlickable {
-        id: historyContainer
-        anchors.top: appBar.bottom
-        width: parent.width
-        height: parent.height - appBar.height
-        contentHeight: history.height
-        clip: true
+        anchors.fill: parent
+        pullDownMenu: appPullDownMenu
 
-        TextArea {
-            id: history
-            width: historyContainer.width
-            autoScrollEnabled: true
-            labelVisible: false
-            readOnly: true
-            wrapMode: TextEdit.Wrap
-            font.pixelSize: Theme.fontSizeLarge
-            font.family: "monospace"
-            text: prepareHistory(historyModel)
+        /** Меню "Поделиться" для старых версий */
+        AppPullDownMenuHistory {
+            id: appPullDownMenu
+            visible: isLegacyVersion
+            onSharehButtonClicked: share()
         }
 
-        VerticalScrollDecorator {}
+        /** Верхняя панель */
+        Loader {
+            id: appBar
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            source: "../components/" + (isLegacyVersion ? "AppBarHistoryLegacy.qml" : "AppBarHistory.qml")
+            onLoaded: {
+                item.title = qsTr("History")
+                item.sharehButtonClicked.connect(share)
+            }
+            Component.onDestruction: {
+                if (item) {
+                    item.sharehButtonClicked.disconnect(share)
+                }
+            }
+        }
+
+        SilicaFlickable {
+            id: historyContainer
+            anchors.top: appBar.bottom
+            width: parent.width
+            height: parent.height - appBar.height
+            contentHeight: history.height
+            pullDownMenu: appPullDownMenu
+            clip: true
+
+            /** Прокручиваемый лог */
+            TextArea {
+                id: history
+                width: historyContainer.width
+                autoScrollEnabled: true
+                labelVisible: false
+                readOnly: true
+                wrapMode: TextEdit.Wrap
+                font.pixelSize: Theme.fontSizeLarge
+                font.family: "monospace"
+                text: prepareHistory(historyModel)
+            }
+
+            VerticalScrollDecorator {}
+        }
     }
 }

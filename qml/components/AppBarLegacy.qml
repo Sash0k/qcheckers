@@ -10,17 +10,14 @@ Column {
     signal refreshButtonClicked()
     signal openHistoryButtonClicked()
 
-    /** Путь к файлу */
-    onSubTitleChanged: {
-        var current = subTitle.text
-    }
-
     Label {
         id: title
         font.pixelSize: Theme.fontSizeMedium
         font.bold: true
+        topPadding: Theme.paddingLarge
         leftPadding: Theme.paddingLarge
         rightPadding: Theme.paddingLarge
+
     }
 
     Label {
